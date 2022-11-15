@@ -63,8 +63,13 @@ const Home = props => {
             flex-direction: column;
             background-color: #060516;
           }
-          .container-home-img {
+          .container-home-mobile {
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .container-home-img {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -72,7 +77,7 @@ const Home = props => {
             margin: 20px 0px;
           }
           .img-logo {
-            width: 280px;
+            width: 140px;
             object-fit: contain;
           }
           .container-home-img-certificate {
@@ -101,6 +106,7 @@ const Home = props => {
             font-family: arial;
           }
           .paragraph-app {
+            width: 75%;
             color: #f8ae3d;
             font-size: 1em;
             margin: 0px;
@@ -121,7 +127,7 @@ const Home = props => {
             color: white;
             padding-left: 10px;
             cursor: pointer;
-            margin: 0px 0px 20px 0px;
+            margin: 0px 0px 5px 0px;
           }
           input:hover {
             border: 1px solid #f8ae3d
@@ -130,13 +136,18 @@ const Home = props => {
             outline-width: 0;
           }
           .get-address {
+            width: 100%;
             display: flex;
+            justify-content: flex-start;
             flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 30px;
           }
           .button-address {
             background-color: #f8ae3d;
             color: white;
             min-width: 300px;
+            max-width: 301px;
             min-height: 40px;
             border-radius: 15px;
             border: 1px solid #f8ae3d;
@@ -148,7 +159,6 @@ const Home = props => {
             }
             .container-home-img {
               justify-content: center;
-              align-items: center;
             }
           }
           @media (min-width: 481px) and (max-width: 768px) {

@@ -132,6 +132,7 @@ const Home = props => {
           .get-address {
             display: flex;
             flex-direction: column;
+            padding-bottom: 30px;
           }
           .button-address {
             background-color: #f8ae3d;

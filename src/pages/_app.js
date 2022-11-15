@@ -2,7 +2,7 @@ import App from 'next/app'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { ServicesProvider } from '../data/providers/ServicesProvider'
-
+import globalStyles from '../styles/globals.js'
 
 const MyApp = ({ Component, pageProps }) => {
 
