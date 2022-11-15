@@ -22,8 +22,10 @@ const Home = props => {
     getAddress(addressWallet).then(res => {
       if (res) {
         console.log(res)
+        router.push('success')
       } else {
-        createWalletAddress()
+        // createWalletAddress()
+        router.push('success')
       }
     })
   }
@@ -32,44 +34,34 @@ const Home = props => {
       <div className='container-home-img'>
         <img className='img-logo' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668421690/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_devpost_tc38i4.png'></img>
       </div>
-      <div className='container-home-mobile'>
-        <img className='img-start' src='https://res.cloudinary.com/crecy-io/image/upload/v1668421757/Crecy%20-%20rescheduling%20screens/Devpost-POCP/Lightning_hackthon_tcqztt.png'></img>
-        <h1 className='title-app'>
-          The Proof of Course<br/>Completion Protocol
-        </h1>
+      <div className='container-collection'>
+        <h1 className='title-app'>Course collection</h1>
+        <h1 className='paragraph-app'>Tron address: TAp7tZfgHJUsMtABvPkUBTbJJDhZnrhGZw</h1>
       </div>
       <div className='container-home-img-certificate'>
+        <img className='img-pocp' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668421758/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_card_o1pdn7.png'></img>
+        <img className='img-pocp' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668427229/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_new_card_u85dit.png'></img>
+        <img className='img-pocp' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668421758/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_card_o1pdn7.png'></img>
         <img className='img-pocp' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668427229/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_new_card_u85dit.png'></img>
       </div>
-      <div className='container-information'>
-        <h1 className='paragraph-app'>
-          POCP - The bookmarkes of your educational journey.
-        </h1>
-        <h1 className='paragraph-app-text'>
-          POCPs are digital certificates, minted in recognition of sucessful course compeltion.
-        </h1>
-        <h1 className='paragraph-app-subtext'>
-          Each POCP is a gift from a professor to students, in recognition of sucessful course completion.
-        </h1>
-        <h1 className='paragraph-app-subtext'>
-          By minting these certificates to the blockchain, students can easily share the information about completed courses with their friends, employers and universities
-        </h1>
+      <div className='container-collection'>
+        <h1 className='paragraph-description'>Mint your course</h1>
+      </div>
+      <div className='get-address'>
+        <input className='input-address' type={'text'} placeholder='Your reference' value={addressWallet} onChange={(e) => setAddressWallet(e.target.value)}/>
+        <button className='button-address' onClick={() => onClickValidateAddress()}>
+          Mint
+        </button>
       </div>
       <style jsx>
         {`
-          .container-information {
-            width: 100%;
+          .main-container {
+            min-height: 100% !important;
             display: flex;
-            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
-            justify-content: center;
-          }
-          .container-home {
-            display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 40px 30px
+            background-color: #060516;
           }
           .container-home-mobile {
             width: 100%;
@@ -81,85 +73,59 @@ const Home = props => {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            margin-bottom: 20px;
-          }
-          .container-home-img-certificate {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 30px 0px;
-
-          }
-          .main-container {
-            min-height: 100% !important;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            flex-direction: column;
-            background-color: #060516;
+            align-items: flex-start;
+            margin: 20px 0px;
           }
           .img-logo {
             width: 140px;
             object-fit: contain;
           }
-          .img-start {
-            width: 25px;
-            object-fit: contain;
+          .container-home-img-certificate {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 40px 0px;
           }
           .img-pocp {
-            width: 280px;
-            height: 280px;
+            width: 90px;
+            height: 100px;
             object-fit: contain;
+          }
+          .container-collection {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
           }
           .title-app {
             color: #f8ae3d;
             font-size: 1.5em;
-            margin: 0px;
-            padding-left: 10px;
+            margin: 10px 0px;
+            font-family: arial;
           }
           .paragraph-app {
             width: 75%;
             color: #f8ae3d;
-            font-size: 1.3em;
+            font-size: 1em;
             margin: 0px;
-            text-align: left;
-            margin-top: 10px;
-          }
-          .paragraph-app-text {
-            width: 75%;
-            color: white;
-            font-weight: 500;
-            font-size: 1.2em;
-            margin: 0px;
-            text-align: left;
-            margin-top: 20px;
-          }
-          .paragraph-app-subtext {
-            width: 75%;
-            color: #ffffff66;
-            font-weight: 400;
-            font-size: 1.2em;
-            margin: 0px;
-            text-align: left;
-            margin-top: 30px;
+            font-family: arial;
           }
           .paragraph-description {
             color: #fff;
-            font-size: 1em;
-            text-align: left;
+            font-size: 1.2em;
+            text-align: center;
+            font-family: arial;
           }
           .input-address {
-            min-width: 300px;
+            min-width: 330px;
             min-height: 40px;
             border-radius: 15px;
             background-color: transparent;
             border: 1px solid white;
             color: white;
-            padding-left: 30px;
+            padding-left: 10px;
             cursor: pointer;
             margin: 0px 0px 5px 0px;
           }
@@ -191,19 +157,7 @@ const Home = props => {
             .responsive-container {
               padding: 0px 1vw;
             }
-            .container-home {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              margin: 20px 15px;
-            }
-            .container-home-mobile {
-              justify-content: center;
-              margin: 10px 0px
-            }
-            .get-address {
-              width: 70%;
+            .container-home-img {
               justify-content: center;
             }
           }

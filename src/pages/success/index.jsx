@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { useServices } from '../../data/providers/ServicesProvider'
 
-const Home = props => {
+const Success = props => {
   const [addressWallet, setAddressWallet] = React.useState('')
   const router = useRouter()
   const { stateService, services: { 
@@ -22,7 +22,6 @@ const Home = props => {
     getAddress(addressWallet).then(res => {
       if (res) {
         console.log(res)
-        router.push('allpocp')
       } else {
         createWalletAddress()
       }
@@ -33,48 +32,27 @@ const Home = props => {
       <div className='container-home-img'>
         <img className='img-logo' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668421690/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_devpost_tc38i4.png'></img>
       </div>
-      <div className='container-home'>
-        <h1 className='title-app'>Welcome to</h1>
-        <h1 className='paragraph-app'>the proof of course completion protocol.</h1>
+      <div className='container-collection'>
+        <h1 className='title-app'>Congratulations!</h1>
+        <h1 className='paragraph-app'>🥳 Your course approbation was recorded</h1>
       </div>
       <div className='container-home-img-certificate'>
         <img className='img-pocp' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668421758/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_card_o1pdn7.png'></img>
       </div>
-      <div className='container-home'>
-        <h1 className='paragraph-description'>See your POCP collection and mint new ones. Start by adding you TRON wallet</h1>
+      <div className='container-text-minted'>
+        <h1 className='paragraph-minted'>Minted in your address: TAp7tZfgHJUsMtABvPkUBTbJJDhZnrhGZw</h1>
+      </div>
+      <div className='container-text-success'>
+        <h1 className='paragraph-description'>Now you your Proof of Course Completion ⚡️</h1>
       </div>
       <div className='get-address'>
-        <input className='input-address' type={'text'} placeholder='Your address' value={addressWallet} onChange={(e) => setAddressWallet(e.target.value)}/>
+        {/* <input className='input-address' type={'text'} placeholder='Your reference' value={addressWallet} onChange={(e) => setAddressWallet(e.target.value)}/> */}
         <button className='button-address' onClick={() => onClickValidateAddress()}>
-          Set as main account
+          Share
         </button>
       </div>
       <style jsx>
         {`
-          .container-home {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 40px 30px
-          }
-          .container-home-img {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            margin: 20px 0px 20px 0px;
-          }
-          .container-home-img-certificate {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 10px 0px;
-
-          }
           .main-container {
             min-height: 100% !important;
             display: flex;
@@ -83,27 +61,59 @@ const Home = props => {
             flex-direction: column;
             background-color: #060516;
           }
+          .container-home-img {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 20px 0px;
+          }
           .img-logo {
             width: 280px;
             object-fit: contain;
+          }
+          .container-home-img-certificate {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 40px 0px;
           }
           .img-pocp {
             width: 280px;
             height: 280px;
             object-fit: contain;
           }
+          .container-collection {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .container-text-success {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .container-text-minted {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
           .title-app {
             color: #f8ae3d;
-            font-size: 2em;
-            margin: 0px;
-            text-align: center;
+            font-size: 1.5em;
+            margin: 10px 0px;
             font-family: arial;
           }
           .paragraph-app {
             color: #f8ae3d;
-            font-size: 1.3em;
+            font-size: 1em;
             margin: 0px;
-            text-align: center;
             font-family: arial;
           }
           .paragraph-description {
@@ -112,14 +122,21 @@ const Home = props => {
             text-align: center;
             font-family: arial;
           }
+          .paragraph-minted {
+            color: #f8ae3d;
+            font-size: 1em;
+            text-align: center;
+            font-family: arial;
+            margin: 0px;
+          }
           .input-address {
-            min-width: 300px;
+            min-width: 330px;
             min-height: 40px;
             border-radius: 15px;
             background-color: transparent;
             border: 1px solid white;
             color: white;
-            padding-left: 30px;
+            padding-left: 10px;
             cursor: pointer;
             margin: 0px 0px 20px 0px;
           }
@@ -132,7 +149,6 @@ const Home = props => {
           .get-address {
             display: flex;
             flex-direction: column;
-            padding-bottom: 30px;
           }
           .button-address {
             background-color: #f8ae3d;
@@ -142,18 +158,10 @@ const Home = props => {
             border-radius: 15px;
             border: 1px solid #f8ae3d;
             cursor: pointer;
-            margin-bottom: 20px;
           }
           @media (max-width: 480px) {
             .responsive-container {
               padding: 0px 1vw;
-            }
-            .container-home {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              margin: 20px 15px;
             }
             .container-home-img {
               justify-content: center;
@@ -186,4 +194,4 @@ const Home = props => {
   )
 }
 
-export default Home
+export default Success
