@@ -1,6 +1,8 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 
 const Home = props => {
+  const router = useRouter()
   return (
     <div className='main-container responsive-container'>
       <div className='container-home-img'>
@@ -66,6 +68,11 @@ const Home = props => {
           friends/colleagues and/or emoployer/university and do it in a new way that 
           attracts more attention and brings additional recognition for them.
         </p>
+      </div>
+      <div className='get-address'>
+        <button className='button-address' onClick={() => router.push('/login')}>
+          go to login
+        </button>
       </div>
       <style jsx>
         {`
