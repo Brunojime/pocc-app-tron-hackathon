@@ -71,7 +71,7 @@ const Home = props => {
       </div>
       <div className='get-address'>
         <button className='button-address' onClick={() => router.push('/login')}>
-          go to login
+          login
         </button>
       </div>
       <style jsx>
