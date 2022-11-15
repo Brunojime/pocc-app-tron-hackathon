@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { useServices } from '../../data/providers/ServicesProvider'
 
-const Home = props => {
+const Success = props => {
   const [addressWallet, setAddressWallet] = React.useState('')
   const router = useRouter()
   const { stateService, services: { 
@@ -22,10 +22,8 @@ const Home = props => {
     getAddress(addressWallet).then(res => {
       if (res) {
         console.log(res)
-        router.push('success')
       } else {
-        // createWalletAddress()
-        router.push('success')
+        createWalletAddress()
       }
     })
   }
@@ -35,22 +33,22 @@ const Home = props => {
         <img className='img-logo' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668421690/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_devpost_tc38i4.png'></img>
       </div>
       <div className='container-collection'>
-        <h1 className='title-app'>Course collection</h1>
-        <h1 className='paragraph-app'>Tron address: TAp7tZfgHJUsMtABvPkUBTbJJDhZnrhGZw</h1>
+        <h1 className='title-app'>Congratulations!</h1>
+        <h1 className='paragraph-app'>🥳 Your course approbation was recorded</h1>
       </div>
       <div className='container-home-img-certificate'>
         <img className='img-pocp' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668421758/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_card_o1pdn7.png'></img>
-        <img className='img-pocp' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668427229/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_new_card_u85dit.png'></img>
-        <img className='img-pocp' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668421758/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_card_o1pdn7.png'></img>
-        <img className='img-pocp' alt='logo-POCP' src='https://res.cloudinary.com/crecy-io/image/upload/v1668427229/Crecy%20-%20rescheduling%20screens/Devpost-POCP/POCP_new_card_u85dit.png'></img>
       </div>
-      <div className='container-collection'>
-        <h1 className='paragraph-description'>Mint your course</h1>
+      <div className='container-text-minted'>
+        <h1 className='paragraph-minted'>Minted in your address: TAp7tZfgHJUsMtABvPkUBTbJJDhZnrhGZw</h1>
+      </div>
+      <div className='container-text-success'>
+        <h1 className='paragraph-description'>Now you your Proof of Course Completion ⚡️</h1>
       </div>
       <div className='get-address'>
-        <input className='input-address' type={'text'} placeholder='Your reference' value={addressWallet} onChange={(e) => setAddressWallet(e.target.value)}/>
+        {/* <input className='input-address' type={'text'} placeholder='Your reference' value={addressWallet} onChange={(e) => setAddressWallet(e.target.value)}/> */}
         <button className='button-address' onClick={() => onClickValidateAddress()}>
-          Mint
+          Share
         </button>
       </div>
       <style jsx>
@@ -84,8 +82,8 @@ const Home = props => {
             margin: 40px 0px;
           }
           .img-pocp {
-            width: 90px;
-            height: 100px;
+            width: 280px;
+            height: 280px;
             object-fit: contain;
           }
           .container-collection {
@@ -93,6 +91,18 @@ const Home = props => {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+          }
+          .container-text-success {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .container-text-minted {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
           .title-app {
             color: #f8ae3d;
@@ -111,6 +121,13 @@ const Home = props => {
             font-size: 1.2em;
             text-align: center;
             font-family: arial;
+          }
+          .paragraph-minted {
+            color: #f8ae3d;
+            font-size: 1em;
+            text-align: center;
+            font-family: arial;
+            margin: 0px;
           }
           .input-address {
             min-width: 330px;
@@ -177,4 +194,4 @@ const Home = props => {
   )
 }
 
-export default Home
+export default Success

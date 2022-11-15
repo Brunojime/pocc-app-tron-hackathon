@@ -22,6 +22,7 @@ const Home = props => {
     getAddress(addressWallet).then(res => {
       if (res) {
         console.log(res)
+        router.push('allpocp')
       } else {
         createWalletAddress()
       }
@@ -63,7 +64,7 @@ const Home = props => {
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            margin: 40px 0px;
+            margin: 20px 0px 20px 0px;
           }
           .container-home-img-certificate {
             width: 100%;
@@ -86,10 +87,6 @@ const Home = props => {
             width: 280px;
             object-fit: contain;
           }
-          .img-logo {
-            width: 280px;
-            object-fit: contain;
-          }
           .img-pocp {
             width: 280px;
             height: 280px;
@@ -97,20 +94,23 @@ const Home = props => {
           }
           .title-app {
             color: #f8ae3d;
-            font-size: 2.5em;
+            font-size: 2em;
             margin: 0px;
             text-align: center;
+            font-family: arial;
           }
           .paragraph-app {
             color: #f8ae3d;
-            font-size: 1.5em;
+            font-size: 1.3em;
             margin: 0px;
             text-align: center;
+            font-family: arial;
           }
           .paragraph-description {
             color: #fff;
-            font-size: 1.5em;
+            font-size: 1.2em;
             text-align: center;
+            font-family: arial;
           }
           .input-address {
             min-width: 300px;
@@ -141,6 +141,7 @@ const Home = props => {
             border-radius: 15px;
             border: 1px solid #f8ae3d;
             cursor: pointer;
+            margin-bottom: 20px;
           }
           @media (max-width: 480px) {
             .responsive-container {
