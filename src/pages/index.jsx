@@ -263,7 +263,7 @@ const Home = props => {
             margin: 0px;
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 20px; 
           }
           .paragraph-description-second {
             color: #ffffff66;
